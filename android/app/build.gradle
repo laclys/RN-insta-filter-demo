@@ -87,6 +87,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
         applicationId "com.insta_filter_demo"
         minSdkVersion 16
         targetSdkVersion 22
@@ -126,6 +127,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-image-crop-picker')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
     compile "com.facebook.react:react-native:+"  // From node_modules
