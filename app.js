@@ -6,13 +6,18 @@ import {
   Dimensions,
   TouchableOpacity,
   Image,
-  FlatList
+  ScrollView
 } from 'react-native';
 
 import { Shaders, Node, GLSL } from 'gl-react';
 import { Surface } from 'gl-react-native';
 import ImagePicker from 'react-native-image-crop-picker'; 
 import data from './data.json'
+import F1977 from './filter/F1977'
+import Amaro from './filter/Amaro'
+import Brannan from './filter/Brannan'
+import Earlybird from './filter/Earlybird'
+import Hudson from './filter/Hudson'
 
 const {height, width} = Dimensions.get('window');
 
@@ -60,29 +65,70 @@ export default class App extends Component {
     )
   }
 
-  listItem () {
-    return (
-      <TouchableOpacity
-        style={styles.itemWrapper}
-        activeOpacity={0.8}
-      >
-        <Image
-          style={styles.itemImage}
-          source={{uri: this.state.imageSrc}}
-        />
-      </TouchableOpacity>
-    )
-  }
-
   renderInstaFilterShow () {
     return this.state.imageSrc ? (
-      <FlatList
+      <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        data={data}
         contentContainerStyle={styles.filterList}
-        renderItem={({item}) => this.listItem(item)}
-      />
+        // renderItem={({item}) => this.listItem(item)}
+      >
+        <TouchableOpacity
+          style={styles.itemWrapper}
+          activeOpacity={0.8}
+        >
+          <Surface style={{width: 150, height:150}}>
+            <F1977 {...this.props}>
+              {{uri:this.state.imageSrc}}
+            </F1977>
+          </Surface>
+          <Text style={styles.filterText} >F1977</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.itemWrapper}
+          activeOpacity={0.8}
+        >
+          <Surface style={{width: 150, height:150}}>
+            <Amaro {...this.props}>
+              {{uri:this.state.imageSrc}}
+            </Amaro>
+          </Surface>
+          <Text style={styles.filterText} >Amaro</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.itemWrapper}
+          activeOpacity={0.8}
+        >
+          <Surface style={{width: 150, height:150}}>
+            <Brannan {...this.props}>
+              {{uri:this.state.imageSrc}}
+            </Brannan>
+          </Surface>
+          <Text style={styles.filterText} >Brannan</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.itemWrapper}
+          activeOpacity={0.8}
+        >
+          <Surface style={{width: 150, height:150}}>
+            <Earlybird {...this.props}>
+              {{uri:this.state.imageSrc}}
+            </Earlybird>
+          </Surface>
+          <Text style={styles.filterText} >Earlybird</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.itemWrapper}
+          activeOpacity={0.8}
+        >
+          <Surface style={{width: 150, height:150}}>
+            <Hudson {...this.props}>
+              {{uri:this.state.imageSrc}}
+            </Hudson>
+          </Surface>
+          <Text style={styles.filterText} >Hudson</Text>
+        </TouchableOpacity>
+      </ScrollView>
     ) : null
   }
 
@@ -125,14 +171,23 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15
   },
   itemWrapper: {
+    position: 'relative',
     width: 150,
     height: 150,
     marginHorizontal: 15,
-    backgroundColor: 'blue'
+    backgroundColor: 'white'
   },
   itemImage: {
     width: 150,
     height: 150
+  },
+  filterText: {
+    position: 'absolute',
+    bottom: 10,
+    right: 20,
+    fontSize: 14,
+    color: '#FFF',
+    backgroundColor: 'transparent'
   }
 });
 
