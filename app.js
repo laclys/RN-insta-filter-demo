@@ -9,8 +9,11 @@ import {
   FlatList
 } from 'react-native';
 
+import { Shaders, Node, GLSL } from 'gl-react';
+import { Surface } from 'gl-react-native';
 import ImagePicker from 'react-native-image-crop-picker'; 
 import data from './data.json'
+
 const {height, width} = Dimensions.get('window');
 
 export default class App extends Component {
