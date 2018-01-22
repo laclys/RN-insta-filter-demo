@@ -26,7 +26,8 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state={
-      imageSrc: null
+      imageSrc: null,
+      choosedFilter: null
     }
   }
 
@@ -46,13 +47,7 @@ export default class App extends Component {
   renderImageWrapper () {
     return this.state.imageSrc ? (
       <View style={styles.photoWrapper} >
-        <Image
-          style={{
-            width: width,
-            height: width
-          }}
-          source={{uri: this.state.imageSrc}}
-        />
+        {this.renderBigPic()}
       </View>
     ) : (
       <TouchableOpacity
@@ -63,6 +58,67 @@ export default class App extends Component {
         <Text style={styles.plusIcon} >+</Text>
       </TouchableOpacity>
     )
+  }
+
+  renderBigPic() {
+    switch (this.state.choosedFilter){
+      case 'F1977':
+        return (
+          <Surface style={{width: width, height:width}}>
+            <F1977 {...this.props}>
+              {{uri:this.state.imageSrc}}
+            </F1977>
+          </Surface>
+        )
+      case 'Amaro':
+        return (
+          <Surface style={{width: width, height:width}}>
+            <Amaro {...this.props}>
+              {{uri:this.state.imageSrc}}
+            </Amaro>
+          </Surface>
+        )
+      case 'Brannan':
+        return (
+          <Surface style={{width: width, height:width}}>
+            <Brannan {...this.props}>
+              {{uri:this.state.imageSrc}}
+            </Brannan>
+          </Surface>
+        )
+      case 'Earlybird':
+        return (
+          <Surface style={{width: width, height:width}}>
+            <Earlybird {...this.props}>
+              {{uri:this.state.imageSrc}}
+            </Earlybird>
+          </Surface>
+        )
+      case 'Hudson':
+        return (
+          <Surface style={{width: width, height:width}}>
+            <Hudson {...this.props}>
+              {{uri:this.state.imageSrc}}
+            </Hudson>
+          </Surface>
+        )
+      default:
+        return (
+          <Image
+            style={{
+              width: width,
+              height: width
+            }}
+            source={{uri: this.state.imageSrc}}
+          />
+        )
+    }
+  }
+
+  chooseFilter (item) {
+    this.setState({
+      choosedFilter: item
+    })
   }
 
   renderInstaFilterShow () {
@@ -76,6 +132,7 @@ export default class App extends Component {
         <TouchableOpacity
           style={styles.itemWrapper}
           activeOpacity={0.8}
+          onPress={() => this.chooseFilter('F1977')}
         >
           <Surface style={{width: 150, height:150}}>
             <F1977 {...this.props}>
@@ -87,6 +144,7 @@ export default class App extends Component {
         <TouchableOpacity
           style={styles.itemWrapper}
           activeOpacity={0.8}
+          onPress={() => this.chooseFilter('Amaro')}
         >
           <Surface style={{width: 150, height:150}}>
             <Amaro {...this.props}>
@@ -98,6 +156,7 @@ export default class App extends Component {
         <TouchableOpacity
           style={styles.itemWrapper}
           activeOpacity={0.8}
+          onPress={() => this.chooseFilter('Brannan')}
         >
           <Surface style={{width: 150, height:150}}>
             <Brannan {...this.props}>
@@ -109,6 +168,7 @@ export default class App extends Component {
         <TouchableOpacity
           style={styles.itemWrapper}
           activeOpacity={0.8}
+          onPress={() => this.chooseFilter('Earlybird')}
         >
           <Surface style={{width: 150, height:150}}>
             <Earlybird {...this.props}>
@@ -120,6 +180,7 @@ export default class App extends Component {
         <TouchableOpacity
           style={styles.itemWrapper}
           activeOpacity={0.8}
+          onPress={() => this.chooseFilter('Hudson')}
         >
           <Surface style={{width: 150, height:150}}>
             <Hudson {...this.props}>
