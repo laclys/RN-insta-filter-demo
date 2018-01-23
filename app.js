@@ -18,6 +18,7 @@ import Amaro from './filter/Amaro'
 import Brannan from './filter/Brannan'
 import Earlybird from './filter/Earlybird'
 import Hudson from './filter/Hudson'
+import ViewShot from "react-native-view-shot";
 
 const {height, width} = Dimensions.get('window');
 
@@ -45,6 +46,9 @@ export default class App extends Component {
   }
 
   handleNextClick() {
+    this.refs.viewShot.capture().then(uri => {
+      alert(uri)
+    })
   }
 
   renderImageWrapper () {
@@ -54,10 +58,12 @@ export default class App extends Component {
           style={styles.nextBtn}
           onPress={() => this.handleNextClick()}
         >
-          <Text style={styles.nextBtnText} >Next</Text>
+          <Text style={styles.nextBtnText} >Save</Text>
         </TouchableOpacity>
         <View ref='pic' >
+        <ViewShot ref="viewShot">
           {this.renderBigPic()}
+        </ViewShot>
         </View>
       </View>
     ) : (

@@ -38,6 +38,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		B073F6F8817F4E6E94411D8A /* libimageCropPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6589A577804602AE59A078 /* libimageCropPicker.a */; };
 		16E36A12950045128A53E708 /* libRNGL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60428BC404BB4A5EA1743449 /* libRNGL.a */; };
+		5FCF60CB31CD41D3B0BC8894 /* libRNViewShot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F2B9F87C3E435A87FB9BB0 /* libRNViewShot.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,6 +265,8 @@
 		E9D22FBB6305045910AA2829 /* Pods-insta_filter_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-insta_filter_demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-insta_filter_demo/Pods-insta_filter_demo.release.xcconfig"; sourceTree = "<group>"; };
 		FE5DEFFAB1D548DDBF52D241 /* RNGL.xcodeproj */ = {isa = PBXFileReference; name = "RNGL.xcodeproj"; path = "../node_modules/gl-react-native/ios/RNGL.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		60428BC404BB4A5EA1743449 /* libRNGL.a */ = {isa = PBXFileReference; name = "libRNGL.a"; path = "libRNGL.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		C3648115C890418880641060 /* RNViewShot.xcodeproj */ = {isa = PBXFileReference; name = "RNViewShot.xcodeproj"; path = "../node_modules/react-native-view-shot/ios/RNViewShot.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		E1F2B9F87C3E435A87FB9BB0 /* libRNViewShot.a */ = {isa = PBXFileReference; name = "libRNViewShot.a"; path = "libRNViewShot.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +296,7 @@
 				B073F6F8817F4E6E94411D8A /* libimageCropPicker.a in Frameworks */,
 				4C01155AF7B88A91B4ED5B52 /* libPods-insta_filter_demo.a in Frameworks */,
 				16E36A12950045128A53E708 /* libRNGL.a in Frameworks */,
+				5FCF60CB31CD41D3B0BC8894 /* libRNViewShot.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +474,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				9863D4C6263C4B8DA657B3DE /* imageCropPicker.xcodeproj */,
 				FE5DEFFAB1D548DDBF52D241 /* RNGL.xcodeproj */,
+				C3648115C890418880641060 /* RNViewShot.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1048,12 +1053,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-crop-picker/ios/**",
 					"$(SRCROOT)/../node_modules/gl-react-native/**",
+					"$(SRCROOT)/../node_modules/react-native-view-shot/ios",
 				);
 				INFOPLIST_FILE = insta_filter_demoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1075,12 +1082,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-crop-picker/ios/**",
 					"$(SRCROOT)/../node_modules/gl-react-native/**",
+					"$(SRCROOT)/../node_modules/react-native-view-shot/ios",
 				);
 				INFOPLIST_FILE = insta_filter_demoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1104,6 +1113,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-crop-picker/ios/**",
 					"$(SRCROOT)/../node_modules/gl-react-native/**",
+					"$(SRCROOT)/../node_modules/react-native-view-shot/ios",
 				);
 				INFOPLIST_FILE = insta_filter_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1127,6 +1137,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-crop-picker/ios/**",
 					"$(SRCROOT)/../node_modules/gl-react-native/**",
+					"$(SRCROOT)/../node_modules/react-native-view-shot/ios",
 				);
 				INFOPLIST_FILE = insta_filter_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1156,11 +1167,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-crop-picker/ios/**",
 					"$(SRCROOT)/../node_modules/gl-react-native/**",
+					"$(SRCROOT)/../node_modules/react-native-view-shot/ios",
 				);
 				INFOPLIST_FILE = "insta_filter_demo-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1192,11 +1205,13 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-crop-picker/ios/**",
 					"$(SRCROOT)/../node_modules/gl-react-native/**",
+					"$(SRCROOT)/../node_modules/react-native-view-shot/ios",
 				);
 				INFOPLIST_FILE = "insta_filter_demo-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1229,6 +1244,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.insta_filter_demo-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1253,6 +1269,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
