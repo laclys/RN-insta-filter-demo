@@ -44,10 +44,21 @@ export default class App extends Component {
     });  
   }
 
+  handleNextClick() {
+  }
+
   renderImageWrapper () {
     return this.state.imageSrc ? (
       <View style={styles.photoWrapper} >
-        {this.renderBigPic()}
+        <TouchableOpacity
+          style={styles.nextBtn}
+          onPress={() => this.handleNextClick()}
+        >
+          <Text style={styles.nextBtnText} >Next</Text>
+        </TouchableOpacity>
+        <View ref='pic' >
+          {this.renderBigPic()}
+        </View>
       </View>
     ) : (
       <TouchableOpacity
@@ -194,7 +205,6 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(this.state.imageSrc)
     return (
       <View style={styles.container}>
         <Text style={styles.topTitle} >Insta_demo</Text>
@@ -217,6 +227,7 @@ const styles = StyleSheet.create({
     fontSize: 14
   },
   photoWrapper: {
+    position: 'relative',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 50,
@@ -249,6 +260,21 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#FFF',
     backgroundColor: 'transparent'
+  },
+  nextBtn: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    width: 40,
+    height: 30,
+    backgroundColor: 'transparent',
+    zIndex: 10
+  },
+  nextBtnText: {
+    fontSize: 14,
+    color: '#FFF'
   }
 });
 
